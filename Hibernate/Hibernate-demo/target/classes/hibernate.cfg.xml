@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- This configuration is mandatory for the hibernate project -->
+
+
+
+<hibernate-configuration>
+
+
+<session-factory>
+<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/jdbc</property>
+<property name="hibernate.connection.username">root</property>
+<property name ="hibernate.connection.password">2580</property>
+
+
+<!-- mapping should write after declaring all the properties   -->
+<mapping class="com.xworkz.hibernate.entity.RestaurantEntity"/>
+
+
+</session-factory>
+
+
+</hibernate-configuration>

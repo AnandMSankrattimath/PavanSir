@@ -1,0 +1,5 @@
+package com.xworkz.hibernate.dao;
+
+public class RestaurantDAO {
+
+}
