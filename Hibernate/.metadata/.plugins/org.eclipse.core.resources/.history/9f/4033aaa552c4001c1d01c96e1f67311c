@@ -1,0 +1,5 @@
+package com.xworkz.hibernate.jpa;
+
+public class RestaurantJPADAO {
+
+}

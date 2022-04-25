@@ -12,6 +12,9 @@ import lombok.Data;
  * note: map only if both names are diff. if both names are same 
  * JPA -- Java Persistant Api(older version)
  * JPA -- Jakarta Persistant Api(newer version)
+ * hibernate provides implementation of JPA.
+ * JPA is a specification of ORM.
+ * entity -- 
  * 
  * */
 @Data // lombok property by default it has setter,getter(),toString(),hashCode(),equals() which helps developer to do no write those methods.
