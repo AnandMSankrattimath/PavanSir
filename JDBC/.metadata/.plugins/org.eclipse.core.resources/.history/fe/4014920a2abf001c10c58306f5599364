@@ -1,0 +1,5 @@
+package com.xworks.jdbcdemo.DTO;
+
+public class MovieDTO {
+
+}

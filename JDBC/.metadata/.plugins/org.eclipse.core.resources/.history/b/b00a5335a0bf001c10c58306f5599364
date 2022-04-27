@@ -1,0 +1,41 @@
+package com.xworkz.gamesApp.DAO;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import static com.xworkz.gamesApp.constants.DBConstants.*;
+
+import com.xworkz.gamesApp.DTO.GamesDTO;
+
+public class GamesDAO {
+
+	public boolean saveGame(GamesDTO gamesDTO) {
+		String insertQuery = "insert into games values(?,?,?,?)";
+		if (gamesDTO == null) {
+			return false;
+		}
+		else {
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+			
+			
+			try {
+				connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+				preparedStatement = connection.prepareStatement(insertQuery); // info about prepared
+				
+				preparedStatement.setInt(1, gamesDTO.getId());
+				preparedStatement.setString(2, gamesDTO.getGameName());
+				preparedStatement.setInt(3, gamesDTO.getNoOfPlayers());
+				preparedStatement.setString(4, gamesDTO.getGameType());
+				
+				preparedStatement.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return true;
+	}
+}

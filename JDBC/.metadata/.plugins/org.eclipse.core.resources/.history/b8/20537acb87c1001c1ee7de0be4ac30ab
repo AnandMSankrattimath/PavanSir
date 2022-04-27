@@ -1,0 +1,9 @@
+package com.xworkz.filehandling.operation;
+import static com.xworkz.filehandling.constants.DBConstants.*;
+
+public class OperationOnFile {
+private int id;
+
+private String name;
+
+}

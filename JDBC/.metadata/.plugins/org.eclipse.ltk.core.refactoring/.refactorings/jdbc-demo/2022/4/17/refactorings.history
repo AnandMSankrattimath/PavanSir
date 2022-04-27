@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;jdbc-demo/src/main/java/com/xworks/jdbcdemo/MovieDTO&apos; to &apos;DTO&apos;" description="Rename resource &apos;MovieDTO&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/xworks/jdbcdemo/MovieDTO" name="DTO" stamp="1650294550910" updateReferences="true"/>
+</session>

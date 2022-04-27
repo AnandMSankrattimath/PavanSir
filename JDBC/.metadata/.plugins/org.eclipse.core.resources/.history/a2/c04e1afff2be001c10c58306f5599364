@@ -1,0 +1,96 @@
+package com.xworks.jdbcdemo.DAO;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+public class MovieDAO { // Data Access Object -- DAO
+	String query = "SELECT mv.name FROM movie mv WHERE id=2"; // mv is the aliase name for Movie.
+	String query1 = "SELECT * FROM movie";
+	String query2 = "SELECT language,budget FROM movie WHERE name=?";
+	
+	Connection connection = null;
+	Statement statement=null;
+	ResultSet resultSet=null;
+	
+	//Get Operations started.
+	//1) getNameByMovieId()
+	public void getNameByMovieId() {
+		
+		
+		
+		try {
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc","root","2580");
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(query);  // resultset has data which is not directly from database but which data came from the cursor.
+														// cursor is the temprory memory from mysql.
+			
+			while(resultSet.next()) {
+				String mName= resultSet.getString("name");
+				System.out.println("Movie Name : "+mName);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		// task use property in getconnection & check transaction cl 
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	//2) getAllDetails()
+	public void getAllDetails() {
+		System.out.println("inside getAll()");
+		try {
+			resultSet = statement.executeQuery(query1);
+			
+			while(resultSet.next()) {
+				//int mid=resultSet.getInt("id");
+				String mName= resultSet.getString("name");
+				double mrating=resultSet.getDouble("rating");
+				String mlang=resultSet.getString("language");
+				long mbudget=resultSet.getLong("budget");
+				System.out.println("MovieDetails : Movie Name=" + mName + ", Language=" + mlang+ ", Budget = " +mbudget  + ", Rating = " + mrating) ;
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("end of  getAll()");
+
+	}
+	
+	
+	//3) getLanguageAndBudgetByMovieName()
+	public void getlanguageAndBudgetByMovieName(String movieName) {
+		System.out.println("Inside getlanguageAndBudgetByMovieName()");
+		try {
+			resultSet=statement.executeQuery(query2);
+				String mName= resultSet.getString("name");
+			if(mName.equalsIgnoreCase(movieName)) {
+				double mrating=resultSet.getDouble("rating");
+				String mlang=resultSet.getString("language");
+				System.out.println("MovieDetails :  Language= " + mlang+ " , Rating = " + mrating) ;
+			}
+			else {
+				System.out.println("Movie not found");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

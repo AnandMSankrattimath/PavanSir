@@ -1,0 +1,47 @@
+package com.xworks.jdbcdemo.DTO;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class MovieDTO {
+	static Connection connection=null;
+	static Statement statement=null;
+	Scanner scanner = new Scanner(System.in);
+	
+	static {
+		try {
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc","root","2580");
+			statement = connection.createStatement();
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Class is Loaded");
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void insertMovieData() {
+		System.out.println("Inside insertMovieData()");
+		System.out.println("Enter  id");
+		int id = scanner.nextInt();
+
+		System.out.println("enter a movie name");
+		String name = scanner.next();
+
+		System.out.println("enter a rating");
+		double rate = scanner.nextDouble();
+
+		System.out.println("enter a laanguage");
+		String lang = scanner.next();
+
+		System.out.println("enter a budget");
+		long budget = scanner.nextLong();
+
+	}
+	
+
+}

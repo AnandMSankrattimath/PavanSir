@@ -1,0 +1,49 @@
+package com.xworks.jdbcdemo;
+
+import java.sql.*;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import com.xworks.jdbcdemo.DAO.MovieDAO;
+
+public class Runner {
+
+	public static void main(String[] args) {
+		//  insert();
+		Scanner sc= new Scanner(System.in);
+		MovieDAO md= new MovieDAO();
+		md.getNameByMovieId();
+		md.getAllDetails();
+	System.out.println("Ente the Movie Name");
+	int  id=sc.nextInt();
+	md.getAllByMovieId(id);
+	//String name= sc.next();
+		//md.getAllDetailsByMovieName(name);
+		
+
+	}
+	
+	private static void insert() {
+		Connection connection = null;
+		Statement statement = null;
+		try {
+			//step 1: Load the register driver
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Class is Loaded");
+			
+			//step2: Establish connection with MySql Server.
+			connection = DriverManager.getConnection("");
+			
+		}catch(Exception e) {}
+		
+		
+		
+	}
+	
+	
+	//step 6: Processing the result set
+	
+	
+	
+
+}

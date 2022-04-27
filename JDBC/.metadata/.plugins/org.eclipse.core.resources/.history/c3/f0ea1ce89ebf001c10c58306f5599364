@@ -1,0 +1,9 @@
+package com.xworkz.gamesApp.constants;
+
+public interface DBConstants {
+	String URL="mysql:jdbc://localhost:3306/jdbc";
+	String USERNAME="root";
+	String PASSWORD="2580";
+
+}
+ 

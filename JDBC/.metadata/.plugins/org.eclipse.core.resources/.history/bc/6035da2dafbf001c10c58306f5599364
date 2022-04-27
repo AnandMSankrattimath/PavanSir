@@ -1,0 +1,11 @@
+package com.xworkz.gamesApp.DTO;
+
+public class GamesDTO {
+	private int id;
+	private String gameName;
+	private int noOfPlayers;
+	private String gameType;
+	
+	
+
+}

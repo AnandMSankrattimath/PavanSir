@@ -1,0 +1,5 @@
+package com.xworkz.gamesApp.DTO;
+
+public class GamesDTO {
+
+}

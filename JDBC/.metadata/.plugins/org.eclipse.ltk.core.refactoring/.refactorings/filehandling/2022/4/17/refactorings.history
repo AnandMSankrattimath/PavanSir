@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;filehandling/src/com/xworkz/filehandling/adddata&apos; to &apos;writefile&apos;" description="Rename resource &apos;adddata&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/xworkz/filehandling/adddata" name="writefile" stamp="1650466654963" updateReferences="true"/>
+</session>

@@ -1,0 +1,15 @@
+package com.xworkz.filehandling.operation;
+import static com.xworkz.filehandling.constants.DBConstants.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+
+public class OperationOnFile {
+private int id;
+
+private String name;
+
+public void read() {
+	File file = new File("C:\\Users\\ANAND\\Desktop\\FileHandling\\Operation.txt");
+}
+}

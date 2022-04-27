@@ -1,0 +1,6 @@
+package com.xworkz.filehandling.operation;
+import static com.xworkz.filehandling.constants.*;
+
+public class OperationOnFile {
+
+}

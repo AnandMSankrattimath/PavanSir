@@ -1,0 +1,42 @@
+package com.xworks.jdbcdemo;
+
+import java.sql.*;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import com.xworks.jdbcdemo.DAO.MovieDAO;
+import com.xworks.jdbcdemo.DTO.MovieDTO;
+
+public class Runner {
+
+	public static void main(String[] args) {
+		// for insertion
+		/*MovieDTO dto=new MovieDTO();
+		dto.insertMovieData();*/
+		
+		Scanner sc= new Scanner(System.in);
+		
+		MovieDAO md= new MovieDAO();
+		//md.getNameByMovieId();
+		md.getAllDetails();
+	//System.out.println("Ente the Movie Id");
+	//int  id=sc.nextInt();
+	
+	//md.getAllByMovieId(id);
+		System.out.println("Enter the Movie Name");
+	
+       // md.getAllDetailsByMovieName(sc.next());
+		md.getLaunguageAndBudgetByMovieName(sc.next());
+		
+		sc.close();
+	}
+	
+	
+		
+		
+	}
+	
+	
+	
+	
+
