@@ -13,10 +13,17 @@ public class MainClass {
 		tvChannel.setLanguage("Hindi");
 		tvChannel.setFree(false);
 		tvChannel.setPrice(119.22);
-		
+
 		TvChannelDAO tvChannelDAO = new TVChannelDAOImpl();
-		tvChannelDAO.saveTVChannel(tvChannel);
-		System.out.println("Saved successfully");
+		// tvChannelDAO.saveTVChannel(tvChannel);
+		// System.out.println("Saved successfully");
+
+		// System.out.println(tvChannelDAO.getChannelByID(4));
+
+		//tvChannelDAO.updateTVChannel(7.00, 4);
+		//System.out.println(" Updated....!");
+		
+		tvChannelDAO.deleteTVChannel(4);
 
 	}
 
