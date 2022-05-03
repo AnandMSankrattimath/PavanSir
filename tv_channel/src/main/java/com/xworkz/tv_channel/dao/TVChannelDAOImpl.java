@@ -5,7 +5,9 @@ import com.xworkz.tv_channel.entity.TVChannel;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 
 public class TVChannelDAOImpl implements TvChannelDAO {
 
@@ -95,6 +97,58 @@ public class TVChannelDAOImpl implements TvChannelDAO {
 				entityManager.close();
 			}
 		}
+	}
+
+	@Override
+	public String getChannelNameByChannelId(Integer channelId) {
+		String channelNameString = null;
+
+		try {
+			entityManager = factory.createEntityManager();
+
+			Query query = entityManager.createQuery("SELECT channelName FROM TVChannel WHERE channelId = :id");
+			query.setParameter("id", channelId);
+			channelNameString = (String) query.getSingleResult();
+		} catch (NoResultException e) {
+			System.out.println("No data Found...!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return channelNameString;
+	}
+
+	@Override
+	public void updateChannelPriceByChannelId(Integer id, Double price) {
+		try {
+			entityManager = factory.createEntityManager();
+			//tx.begin();
+			Query query = entityManager.createQuery("UPDATE TVChannel SET price = :price WHERE channelId = :id");
+			query.setParameter("price", price);
+			query.setParameter("id", id);
+			entityManager.getTransaction().begin();
+			query.executeUpdate();
+			entityManager.getTransaction().commit();
+			System.out.println("Update Successfully...");
+		} catch (NoResultException e) {
+			System.out.println("No records found...");
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void deleteChannelById(Integer id) {
+		entityManager=factory.createEntityManager();
+		Query query= entityManager.createQuery("DELETE FROM TVChannel WHERE channelId=:id");
+		query.setParameter("id", id);
+		entityManager.getTransaction().begin();
+		query.executeUpdate();
+		entityManager.getTransaction().commit();
+		System.out.println("Deleted Successfully...");
 	}
 
 }
